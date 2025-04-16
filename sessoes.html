@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sessões Disponíveis - Controle de Cinema</title>
+    <!-- Link para o arquivo de estilos do Bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="cinema.css">
+  </head>
+  <body class="bg-dark text-light">
+    <!-- Menu de navegação com novo estilo -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+      <div class="container">
+        <a class="navbar-brand" href="./home.html">
+          <span class="text-danger">Cine</span><span class="text-white">Mais</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./cadastro-filmes.html">Filmes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./cadastro-salas.html">Salas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./cadastro-sessoes.html">Sessões</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./venda-ingressos.html">Ingressos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
+    <!-- Conteúdo principal da página -->
+    <div class="container mt-5">
+      <!-- Título da seção -->
+      <h1 class="mb-4">Sessões Disponíveis</h1>
+      
+      <!-- Tabela para exibir a listagem de sessões -->
+      <!-- Os dados exibidos na tabela deverão ser preenchidos dinamicamente via JavaScript -->
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <!-- Cabeçalhos da tabela -->
+            <th scope="col">Filme</th>
+            <th scope="col">Sala</th>
+            <th scope="col">Data e Hora</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Exemplo de uma linha da tabela com dados estáticos -->
+          <tr>
+            <!-- Nome do Filme -->
+            <td>Senhor dos Anéis</td>
+            <!-- Nome da Sala -->
+            <td>Sala 1</td>
+            <!-- Data e Hora da Sessão -->
+            <td>2025-05-15 19:30</td>
+            <!-- Preço do Ingresso -->
+            <td>R$ 25,00</td>
+            <!-- Botão que redireciona para a página de venda de ingressos -->
+            <td>
+              <a href="./venda-ingressos.html" class="btn btn-primary btn-sm">Comprar Ingresso</a>
+            </td>
+          </tr>
+          <!-- Outras linhas podem ser adicionadas dinamicamente -->
+          <!-- <tr>
+            <td>Outro Filme</td>
+            <td>Sala 2</td>
+            <td>2025-05-15 21:00</td>
+            <td>R$ 30,00</td>
+            <td>
+              <a href="./venda-ingressos.html" class="btn btn-primary btn-sm">Comprar Ingresso</a>
+            </td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Inclusão do JavaScript do Bootstrap para funcionalidades interativas, como o menu responsivo -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
+    <script src="./sessoes.js"></script>
+
+  </body>
+  </html>
