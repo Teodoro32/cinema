@@ -1,0 +1,85 @@
+- Sistema de Gerenciamento de Cinema (CineMais)
+📌 Visão Geral
+O CineMais é um sistema completo para gerenciamento de cinemas, desenvolvido com HTML, CSS, JavaScript e Bootstrap. Permite o cadastro de filmes, salas, sessões e a venda de ingressos de forma integrada.
+
+✨ Funcionalidades Principais
+Cadastro de Filmes: Gerencie títulos, descrições, gêneros e datas de estreia
+
+Gerenciamento de Salas: Configure capacidade e tipos de tecnologia (2D/3D/IMAX)
+
+Programação de Sessões: Combine filmes e salas com horários específicos
+
+Venda de Ingressos: Interface para venda com seleção de assentos
+
+Dashboard Home: Visualização de filmes em cartaz e próximas sessões
+
+🛠️ Tecnologias Utilizadas
+Frontend:
+
+HTML5
+
+CSS3 (com Bootstrap 5)
+
+JavaScript (ES6+)
+
+Armazenamento: LocalStorage (persistência no navegador)
+
+🔧 Como Executar
+Clone o repositório ou baixe os arquivos
+
+Abra o arquivo home.html em qualquer navegador moderno
+
+Navegue entre as seções usando o menu superior
+
+📋 Pré-requisitos
+Navegador atualizado (Chrome, Firefox, Edge ou Safari)
+
+JavaScript habilitado
+
+🎨 Design System
+Cores Principais:
+
+Vermelho (#dc3545) - Destaques
+
+Preto (#000000) - Fundos
+
+Branco (#ffffff) - Textos
+
+Tipografia:
+
+Bootstrap padrão (system-ui)
+
+Cards: Bordas coloridas por categoria
+
+🔄 Funcionamento do Sistema
+Fluxo Principal:
+
+Cadastre filmes
+
+Cadastre salas
+
+Crie sessões associando filmes e salas
+
+Venda ingressos para as sessões
+
+Persistência:
+
+Todos os dados são armazenados no localStorage do navegador
+
+Permanecem disponíveis após atualizações da página
+
+📱 Responsividade
+Layout adaptável para:
+
+Desktop (≥992px)
+
+Tablet (≥768px)
+
+Mobile (<768px)
+
+✍️ Autor
+Gabriel Teodoro
+Desenvolvedor Full Stack
+
+📄 Licença
+Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para detalhes.

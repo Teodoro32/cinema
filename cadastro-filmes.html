@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Filmes - Controle de Cinema</title>
+    <!-- Referência local para o Bootstrap CSS -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="cinema.css">
+  </head>
+  <body>
+    <title>Home - CineMais</title>
+  </head>
+  <body class="bg-dark text-light">
+    <!-- Menu de navegação com novo estilo -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+      <div class="container">
+        <a class="navbar-brand" href="./home.html">
+          <span class="text-danger">Cine</span><span class="text-white">Mais</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./cadastro-filmes.html">Filmes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./cadastro-salas.html">Salas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./cadastro-sessoes.html">Sessões</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./venda-ingressos.html">Ingressos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <div class="container mt-5">
+      <h1 class="mb-4">Cadastro de Filmes</h1>
+
+      <!-- Formulário de Cadastro de Filmes -->
+      <form id="formFilme">
+        <!-- Campo Título -->
+        <div class="mb-3">
+          <label for="titulo" class="form-label">Título</label>
+          <input type="text" id="titulo" class="form-control" required placeholder="Digite o título do filme" />
+        </div>
+        <!-- Campo Descrição -->
+        <div class="mb-3">
+          <label for="descricao" class="form-label">Descrição</label>
+          <textarea id="descricao" class="form-control" rows="3" required placeholder="Insira a descrição do filme"></textarea>
+        </div>
+        <!-- Campo Gênero -->
+        <div class="mb-3">
+          <label for="genero" class="form-label">Gênero</label>
+          <select id="genero" class="form-select" required>
+            <option value="">Selecione</option>
+            <option value="Ação">Ação</option>
+            <option value="Drama">Drama</option>
+            <option value="Comédia">Comédia</option>
+            <option value="Romance">Romance</option>
+            <option value="Ficção Científica">Ficção Científica</option>
+          </select>
+        </div>
+        <!-- Campo Classificação -->
+        <div class="mb-3">
+          <label for="classificacao" class="form-label">Classificação Indicativa</label>
+          <select id="classificacao" class="form-select" required>
+            <option value="">Selecione</option>
+            <option value="Livre">Livre</option>
+            <option value="10">10</option>
+            <option value="12">12</option>
+            <option value="14">14</option>
+            <option value="16">16</option>
+            <option value="18">18</option>
+          </select>
+        </div>
+        <!-- Campo Duração -->
+        <div class="mb-3">
+          <label for="duracao" class="form-label">Duração (minutos)</label>
+          <input type="number" id="duracao" class="form-control" required placeholder="Ex.: 120" />
+        </div>
+        <!-- Campo Data de Estreia -->
+        <div class="mb-3">
+          <label for="dataEstreia" class="form-label">Data de Estreia</label>
+          <input type="date" id="dataEstreia" class="form-control" required />
+        </div>
+        <!-- Campo Upload de Imagem -->
+        <div class="mb-3">
+          <label for="imagem" class="form-label">Imagem do Filme (Pôster)</label>
+          <input type="file" id="imagem" class="form-control" accept="image/*" />
+          <img id="preview" class="filme-imagem mt-3" alt="Pré-visualização da Imagem " style="display: none;"/>
+        </div>
+        <!-- Botões para Salvar e Cancelar Edição -->
+        <button type="submit" class="btn btn-danger" id="btnSalvar">Salvar Filme</button>
+        <button type="button" class="btn btn-secondary" id="btnCancelarEdit" style="display: none;">Cancelar Edição</button>
+      </form>
+
+      <!-- Botão para atualizar manualmente a tabela -->
+      <button type="button" class="btn btn-info mt-4" id="btnAtualizarTabela">Atualizar Tabela</button>
+
+      <!-- Tabela para exibir os filmes cadastrados -->
+      <h2 class="mt-5">Filmes Cadastrados</h2>
+      <table class="table table-striped" id="tabelaFilmes">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Gênero</th>
+            <th>Classificação</th>
+            <th>Duração</th>
+            <th>Data de Estreia</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- As linhas serão inseridas dinamicamente via JavaScript -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Inclusão do Bootstrap Bundle JS (local) -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <!-- Inclusão do arquivo JavaScript para o cadastro de filmes (no mesmo diretório) -->
+    <script src="./cadastro-filmes.js"></script>
+  </body>
+</html>

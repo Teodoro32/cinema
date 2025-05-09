@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="cinema.css">
+  <title>Home - CineMais</title>
+</head>
+<body class="bg-dark text-light">
+  <!-- Menu de navegação com novo estilo -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+    <div class="container">
+      <a class="navbar-brand" href="./home.html">
+        <span class="text-danger">Cine</span><span class="text-white">Mais</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+              data-bs-target="#navbarNav" aria-controls="navbarNav" 
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./cadastro-filmes.html">Filmes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./cadastro-salas.html">Salas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./cadastro-sessoes.html">Sessões</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./venda-ingressos.html">Ingressos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Conteúdo principal -->
+  <div class="container mt-5">
+    <header class="text-center mb-5">
+      <h1 class="display-4 fw-bold text-danger">Bem-vindo ao <span class="text-white">CineMais</span></h1>
+      <p class="lead text-light">
+        O sistema completo para gerenciamento de cinemas
+      </p>
+    </header>
+    
+    <!-- Cards de funcionalidades -->
+    <div class="row g-4">
+      <!-- Card Filmes -->
+      <div class="col-md-4">
+        <div class="card bg-dark border-danger h-100">
+          <div class="card-body">
+            <h5 class="card-title text-danger">Cadastro de Filmes</h5>
+            <p class="card-text text-light">
+              Cadastre novos filmes com informações detalhadas, como título, descrição, gênero, duração e data de estreia.
+            </p>
+            <div class="d-flex gap-2 mb-4">
+              <a href="./cadastro-filmes.html" class="btn btn-danger">Acessar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card Salas -->
+      <div class="col-md-4">
+        <div class="card bg-dark border-danger h-100">
+          <div class="card-body">
+            <h5 class="card-title text-danger">Cadastro de Salas</h5>
+            <p class="card-text text-light">
+              Gerencie as salas do cinema, definindo capacidade e tipo (2D, 3D, IMAX) para ver os filmes desejados. 
+            </p>
+            <div class="d-flex gap-2 mb-4">
+              <a href="./cadastro-salas.html" class="btn btn-danger">Acessar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Card Sessões -->
+      <div class="col-md-4">
+        <div class="card bg-dark border-danger h-100">
+          <div class="card-body">
+            <h5 class="card-title text-danger">Sessões e Ingressos</h5>
+            <p class="card-text text-light">
+              Configure as sessões e disponibilize a venda dos ingressos, combinando dados de filmes e salas.
+            </p>
+            <div class="flex gap-2">
+              <a href="./cadastro-sessoes.html" class="btn btn-danger flex-grow-1">Sessões</a>
+              <a href="./venda-ingressos.html" class="btn btn-danger flex-grow-1">Ingressos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Seção Filmes Cadastrados -->
+    <section class="mt-5 pt-4">
+      <h2 class="text-danger border-bottom border-danger pb-2">Filmes em Cartaz</h2>
+      <div id="listaFilmes" class="row g-4 mt-3 filme-card filme-card:hover">
+        <!-- Os filmes serão carregados aqui dinamicamente -->
+      </div>
+    </section>
+    
+    <!-- Seção Sessões Disponíveis -->
+    <section class="mt-5 pt-4">
+      <h2 class="text-danger border-bottom border-danger pb-2">Próximas Sessões</h2>
+      <div id="listaSessoes" class="list-group mt-3">
+        <!-- As sessões serão carregadas aqui dinamicamente -->
+      </div>
+    </section>
+  </div>
+  
+  <!-- Rodapé -->
+  <footer class="bg-black text-light py-4 mt-5">
+    <div class="container text-center">
+      <p class="mb-0">© 2025 Gabriel Teodoro - Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+  <script src="./js/bootstrap.bundle.min.js"></script>
+  <script src="./home.js"></script>
+</body>
+</html>

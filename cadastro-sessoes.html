@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Sessões - Controle de Cinema</title>
+    <!-- Bootstrap CSS local -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="cinema.css">
+  </head>
+  <body class="bg-dark text-light">
+    <!-- Menu de navegação com novo estilo -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+      <div class="container">
+        <a class="navbar-brand" href="./home.html">
+          <span class="text-danger">Cine</span><span class="text-white">Mais</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./cadastro-filmes.html">Filmes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./cadastro-salas.html">Salas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./cadastro-sessoes.html">Sessões</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./venda-ingressos.html">Ingressos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <div class="container mt-5 pt-5">
+      <h1 class="mb-4">Cadastro de Sessões</h1>
+      
+      <!-- Formulário de cadastro de sessões (sem modal) -->
+      <form id="formSessao">
+        <!-- Campo Filme (select) -->
+        <div class="mb-3">
+          <label for="filme" class="form-label">Filme</label>
+          <select id="filme" class="form-select" required>
+            <option value="">Selecione um filme</option>
+            <!-- As opções serão preenchidas via JavaScript -->
+          </select>
+        </div>
+        <!-- Campo Sala (select) -->
+        <div class="mb-3">
+          <label for="sala" class="form-label">Sala</label>
+          <select id="sala" class="form-select" required>
+            <option value="">Selecione uma sala</option>
+            <!-- As opções serão preenchidas via JavaScript -->
+          </select>
+        </div>
+        <!-- Campo Data e Hora -->
+        <div class="mb-3">
+          <label for="dataHora" class="form-label">Data e Hora</label>
+          <input type="datetime-local" id="dataHora" class="form-control" required>
+        </div>
+        <!-- Campo Preço -->
+        <div class="mb-3">
+          <label for="preco" class="form-label">Preço</label>
+          <input type="number" id="preco" class="form-control" required placeholder="Digite o preço">
+        </div>
+        <!-- Campo Idioma -->
+        <div class="mb-3">
+          <label for="idioma" class="form-label">Idioma</label>
+          <select id="idioma" class="form-select" required>
+            <option value="">Selecione</option>
+            <option value="Dublado">Dublado</option>
+            <option value="Legendado">Legendado</option>
+          </select>
+        </div>
+        <!-- Campo Formato -->
+        <div class="mb-3">
+          <label for="formato" class="form-label">Formato</label>
+          <select id="formato" class="form-select" required>
+            <option value="">Selecione</option>
+            <option value="2D">2D</option>
+            <option value="3D">3D</option>
+          </select>
+        </div>
+        <!-- Botões de Envio e Cancelar Edição -->
+        <button type="submit" class="btn btn-danger" id="btnSalvarSessao">Salvar Sessão</button>
+        <button type="button" class="btn btn-secondary" id="btnCancelarEditSessao" style="display: none;">
+          Cancelar Edição
+        </button>
+      </form>
+      
+      <!-- Botão para atualizar manualmente a tabela -->
+      <button type="button" class="btn btn-info mt-4" id="btnAtualizarTabelaSessao">
+        Atualizar Tabela
+      </button>
+      
+      <!-- Tabela para exibir as sessões cadastradas -->
+      <h2 class="mt-5">Sessões Cadastradas</h2>
+      <div class="table-responsive">
+        <table class="table table-striped" id="tabelaSessoes">
+          <thead>
+            <tr>
+              <th>Filme</th>
+              <th>Sala</th>
+              <th>Data e Hora</th>
+              <th>Preço</th>
+              <th>Idioma</th>
+              <th>Formato</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Linhas serão inseridas dinamicamente via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Inclusão do Bootstrap Bundle JS local -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <!-- Inclusão do arquivo JavaScript para o cadastro de sessões -->
+    <script src="./cadastro-sessoes.js"></script>
+  </body>
+</html>

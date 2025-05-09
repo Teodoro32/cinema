@@ -1,0 +1,134 @@
+#listaFilmes {
+    margin-top: 20px;
+  }
+
+#listaSessoes {
+margin-top: 20px;
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 200px;
+  }
+
+  #preview {
+    max-width: 300px;
+    margin-top: 10px;
+    display: none;
+  }
+  /* Espaçamento para a tabela */
+  table {
+    margin-top: 20px;
+  }
+
+  /* Estilos personalizados para o CineMais */
+
+/* Fundo preto para o navbar */
+.bg-black {
+  background-color: #000000 !important;
+}
+
+/* Estilo para os cards de filme */
+.card-filme {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.card-filme:hover {
+  transform: translateY(-5px);
+}
+
+/* Estilo para as sessões na lista */
+.list-group-item-sessao {
+  background-color: #1a1a1a;
+  border-left: 4px solid #dc3545;
+  margin-bottom: 8px;
+}
+
+.list-group-item-sessao:hover {
+  background-color: #2a2a2a;
+}
+
+/* Efeito para botões */
+.btn-cinemais {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-cinemais::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(30deg);
+  transition: all 0.3s;
+}
+
+.btn-cinemais:hover::after {
+  left: 100%;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+  .display-4 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Estilo para os cards de filme */
+.filme-card {
+  position: relative; /* Para posicionar o overlay */
+  height: 100%; /* Ocupa toda a altura do container */
+  overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  transition: transform 0.3s ease; /* Efeito de hover suave */
+}
+
+.filme-card:hover {
+  transform: translateY(-5px); /* Efeito de levantar ao passar o mouse */
+}
+
+/* Estilo para a imagem do filme */
+.filme-imagem {
+  width: 100%; /* Ocupa 100% da largura */
+  height: 100%; /* Ocupa 100% da altura */
+  object-fit: cover; /* Garante que a imagem cubra todo o espaço mantendo proporções */
+  display: block; /* Remove espaços extras abaixo da imagem */
+}
+
+
+/* Estilos para a lista de sessões */
+.list-group-item {
+  background-color: #343a40; /* Fundo escuro */
+  color: #f8f9fa; /* Texto claro */
+  border-color: #495057; /* Cor da borda */
+  margin-bottom: 8px;
+  border-radius: 5px;
+}
+
+.list-group-item:hover {
+  background-color: #495057; /* Cor ao passar o mouse */
+}
+
+.list-group-item h5 {
+  color: #fff; /* Título em branco */
+}
+
+.list-group-item small,
+.list-group-item p {
+  color: #dee2e6; /* Texto secundário mais claro */
+}
+
+/* Melhorias para os elementos internos */
+.d-flex {
+  align-items: center;
+}
+
+.mb-1 {
+  margin-bottom: 0.5rem;
+}
+
