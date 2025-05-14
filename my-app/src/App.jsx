@@ -1,13 +1,13 @@
 import React from 'react'
 import './App.css'
-import Home from './components/Menu/Home'
+import Home from './features/Home/components/Home';
 import Button from './components/Button/Button';
 
 function App() {
 
   return (
     <>
-      <Home />
+      <Home/>
       <Button />
     </>
   );
