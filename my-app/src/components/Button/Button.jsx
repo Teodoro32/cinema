@@ -1,9 +1,15 @@
 import React from "react";
 
-function Button(){
-    
+function Button({
+    type = "button",
+    variant = "danger",
+    onClick,
+    isModal = false,
+    children,
+}){
+
     return (
-        <button className="btn btn-danger" type="button"> Cadastrar</button>
+        <button className={`btn btn-${variant}`} type={type} onClick={!isModal ? onClick : undefined}> {children}</button>
     );
 };
 
