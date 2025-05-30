@@ -1,14 +1,13 @@
-import React from 'react';
-import styles from './Menu.module.css';
+import { Link } from 'react-router-dom';
 
 function Menu() {
   return (
-    <nav className={`navbar navbar-expand-lg navbar-dark bg-dark ${styles.navbar || ''}`}>
+    <nav className={`navbar navbar-expand-lg navbar-dark bg-black`}>
       <div className="container">
-        <a className="navbar-brand" href="#">
+        <Link className="navbar-brand" to="#">
           <span className="text-danger">Cine</span>
           <span className="text-white">Mais</span>
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -23,19 +22,19 @@ function Menu() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <a className="nav-link active" href="#">Home</a>
+              <Link className="nav-link active" to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/cadastro-filmes">Filmes</a>
+              <Link className="nav-link" to="/cadastro-filmes">Filme</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/cadastro-salas">Salas</a>
+              <Link className="nav-link" to="/cadastro-salas">Salas</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/cadastro-sessoes">Sessões</a>
+              <Link className="nav-link" to="/cadastro-sessoes">Sessões</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/venda-ingressos">Ingressos</a>
+              <Link className="nav-link" to="/venda-ingressos">Ingressos</Link>
             </li>
           </ul>
         </div>

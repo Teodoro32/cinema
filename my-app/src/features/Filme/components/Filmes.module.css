@@ -1,0 +1,36 @@
+.filme-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 16px;
+  margin: 12px;
+  width: 300px;
+}
+
+.filme-card-title {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: #333333;
+}
+
+.filme-card-text {
+  font-size: 1rem;
+  color: #666666;
+  margin-bottom: 12px;
+}
+
+.filme-button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.filme-button:hover {
+  background-color: #0056b3;
+}

@@ -1,15 +1,10 @@
-import React from 'react'
-import './App.css'
-import Home from './features/Home/components/Home';
-import Button from './components/Button/Button';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import AppRoutes from './routes/AppRoutes';
+import "./index.css"
 
 function App() {
-
   return (
     <>
-      <Home/>
+    <AppRoutes/>
     </>
   );
 }

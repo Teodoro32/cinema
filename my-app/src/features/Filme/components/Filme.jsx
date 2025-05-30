@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "../../../components/Button/Button";
+import styles from './Filme.module.css';
 
 function Filme() {
   // Estados para os campos do formulário
@@ -88,19 +88,19 @@ function Filme() {
   };
 
   return (
-    <div className="container mt-5">
-      <h1 className="mb-4">Cadastro de Filmes</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Cadastro de Filmes</h1>
 
       {/* Formulário de Cadastro de Filmes */}
-      <form id="formFilme" onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         {/* Campo Título */}
-        <div className="mb-3">
-          <label htmlFor="titulo" className="form-label">Título</label>
+        <div className={styles.formGroup}>
+          <label htmlFor="titulo" className={styles.formLabel}>Título</label>
           <input 
             type="text" 
             id="titulo" 
             name="titulo"
-            className="form-control" 
+            className={styles.formControl} 
             required 
             placeholder="Digite o título do filme"
             value={filme.titulo}
@@ -109,12 +109,12 @@ function Filme() {
         </div>
         
         {/* Campo Descrição */}
-        <div className="mb-3">
-          <label htmlFor="descricao" className="form-label">Descrição</label>
+        <div className={styles.formGroup}>
+          <label htmlFor="descricao" className={styles.formLabel}>Descrição</label>
           <textarea 
             id="descricao" 
             name="descricao"
-            className="form-control" 
+            className={styles.formControl} 
             rows="3" 
             required 
             placeholder="Insira a descrição do filme"
@@ -124,12 +124,12 @@ function Filme() {
         </div>
         
         {/* Campo Gênero */}
-        <div className="mb-3">
-          <label htmlFor="genero" className="form-label">Gênero</label>
+        <div className={styles.formGroup}>
+          <label htmlFor="genero" className={styles.formLabel}>Gênero</label>
           <select 
             id="genero" 
             name="genero"
-            className="form-select" 
+            className={styles.formSelect} 
             required
             value={filme.genero}
             onChange={handleChange}
@@ -144,12 +144,12 @@ function Filme() {
         </div>
         
         {/* Campo Classificação */}
-        <div className="mb-3">
-          <label htmlFor="classificacao" className="form-label">Classificação Indicativa</label>
+        <div className={styles.formGroup}>
+          <label htmlFor="classificacao" className={styles.formLabel}>Classificação Indicativa</label>
           <select 
             id="classificacao" 
             name="classificacao"
-            className="form-select" 
+            className={styles.formSelect} 
             required
             value={filme.classificacao}
             onChange={handleChange}
@@ -165,13 +165,13 @@ function Filme() {
         </div>
         
         {/* Campo Duração */}
-        <div className="mb-3">
-          <label htmlFor="duracao" className="form-label">Duração (minutos)</label>
+        <div className={styles.formGroup}>
+          <label htmlFor="duracao" className={styles.formLabel}>Duração (minutos)</label>
           <input 
             type="number" 
             id="duracao" 
             name="duracao"
-            className="form-control" 
+            className={styles.formControl} 
             required 
             placeholder="Ex.: 120"
             value={filme.duracao}
@@ -180,13 +180,13 @@ function Filme() {
         </div>
         
         {/* Campo Data de Estreia */}
-        <div className="mb-3">
-          <label htmlFor="dataEstreia" className="form-label">Data de Estreia</label>
+        <div className={styles.formGroup}>
+          <label htmlFor="dataEstreia" className={styles.formLabel}>Data de Estreia</label>
           <input 
             type="date" 
             id="dataEstreia" 
             name="dataEstreia"
-            className="form-control" 
+            className={styles.formControl} 
             required
             value={filme.dataEstreia}
             onChange={handleChange}
@@ -194,35 +194,37 @@ function Filme() {
         </div>
         
         {/* Campo Upload de Imagem */}
-        <div className="mb-3">
-          <label htmlFor="imagem" className="form-label">Imagem do Filme (Pôster)</label>
+        <div className={styles.formGroup}>
+          <label htmlFor="imagem" className={styles.formLabel}>Imagem do Filme (Pôster)</label>
           <input 
             type="file" 
             id="imagem" 
             name="imagem"
-            className="form-control" 
+            className={styles.formControl} 
             accept="image/*"
             onChange={handleChange}
           />
           {filme.preview && (
             <img 
               src={filme.preview} 
-              id="preview" 
-              className="filme-imagem mt-3" 
+              className={styles.filmeImagem} 
               alt="Pré-visualização da Imagem" 
-              style={{ maxWidth: '200px' }}
             />
           )}
         </div>
         
         {/* Botões para Salvar e Cancelar Edição */}
-        <button type="submit" variant="danger" onClick={handleSubmit}>
+        <button 
+          type="submit" 
+          className={`${styles.button} ${styles.buttonPrimary}`}
+          onClick={handleSubmit}
+        >
           {editando ? 'Atualizar Filme' : 'Salvar Filme'}
         </button>
         {editando && (
           <button 
             type="button" 
-            variant="secondary"
+            className={`${styles.button} ${styles.buttonSecondary}`}
             onClick={() => {
               setEditando(false);
               setIdEditando(null);
@@ -243,14 +245,8 @@ function Filme() {
         )}
       </form>
 
-      {/* Botão para atualizar manualmente a tabela */}
-      <button type="button" variant="warning" onClick={()=> editarFilme(filme.id)}>
-        Atualizar Tabela
-      </button>
-
-      {/* Tabela para exibir os filmes cadastrados */}
-      <h2 className="mt-5">Filmes Cadastrados</h2>
-      <table className="table table-striped" id="tabelaFilmes">
+      <h2 className={styles.subtitle}>Filmes Cadastrados</h2>
+      <table className={styles.table}>
         <thead>
           <tr>
             <th>Título</th>
@@ -273,13 +269,13 @@ function Filme() {
               <td>{filme.dataEstreia}</td>
               <td>
                 <button 
-                  className="btn btn-warning btn-sm me-2"
+                  className={`${styles.actionButton} ${styles.buttonPrimary}`}
                   onClick={() => editarFilme(filme.id)}
                 >
                   Editar
                 </button>
                 <button 
-                  className="btn btn-danger btn-sm"
+                  className={`${styles.actionButton} ${styles.buttonDanger}`}
                   onClick={() => excluirFilme(filme.id)}
                 >
                   Excluir

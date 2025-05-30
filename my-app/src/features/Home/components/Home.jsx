@@ -1,25 +1,22 @@
-import React from 'react';
-import styles from './Home.module.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import Menu from '../../../components/Menu/Menu';
+import { Link } from 'react-router-dom';
 import Button from '../../../components/Button/Button';
-
+import styles from './Home.module.css';
+import Menu from '../../../components/Menu/Menu';
+import './Home.module.css';
 function Home(){
     return (
-      <div className={styles.wrapper}>
-        <Menu />
-  
+      <div className="containerHome">
+        <Menu/>
         {/* Conteúdo principal */}
-        <div className={`container ${styles.main}`}>
+        <div className={`${styles.main}`}>
           <header className={styles.header}>
             <h1 className={`${styles.title} ${styles.textDanger}`}>
               Bem-vindo ao <span className={styles.textWhite}>CineMais</span>
             </h1>
             <p className={styles.lead}>O sistema completo para gerenciamento de cinemas</p>
           </header>
-  
-          <div className="row g-4">
+          <div className="containerPrincipal">
+            <div className="row g-4">
             {/* Card Filmes */}
             <div className="col-md-4">
               <div className={styles.card}>
@@ -29,9 +26,9 @@ function Home(){
                     Cadastre novos filmes com informações detalhadas, como título, descrição, gênero, duração e data de estreia.
                   </p>
                   <div className={styles.cardButtons}>
-                    <a href="/cadastro-filmes">
+                    <Link to="/cadastro-filmes">
                       <Button variant="danger">Acessar</Button>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -46,9 +43,9 @@ function Home(){
                     Gerencie as salas do cinema, definindo capacidade e tipo (2D, 3D, IMAX) para ver os filmes desejados.
                   </p>
                   <div className={styles.cardButtons}>
-                    <a href="/cadastro-salas">
+                    <Link to="/cadastro-salas">
                       <Button variant="danger">Acessar</Button>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -63,16 +60,17 @@ function Home(){
                     Configure as sessões e disponibilize a venda dos ingressos, combinando dados de filmes e salas.
                   </p>
                   <div className={`${styles.cardButtons} d-flex gap-2`}>
-                    <a href="/cadastro-sessoes" className="flex-grow-1">
+                    <Link to="/cadastro-sessoes" className="flex-grow-1">
                       <Button variant="danger">Sessões</Button>
-                    </a>
-                    <a href="/venda-ingressos" className="flex-grow-1">
+                    </Link>
+                    <Link to="/venda-ingressos" className="flex-grow-1">
                       <Button variant="danger">Ingressos</Button>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
           </div>
   
           {/* Seções de dados carregáveis */}
