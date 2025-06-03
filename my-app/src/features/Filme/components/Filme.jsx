@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from './Filme.module.css';
+import Menu from "../../../components/Menu/Menu";
 
 function Filme() {
   // Estados para os campos do formulário
@@ -89,6 +90,7 @@ function Filme() {
 
   return (
     <div className={styles.container}>
+      <Menu/>
       <h1 className={styles.title}>Cadastro de Filmes</h1>
 
       {/* Formulário de Cadastro de Filmes */}

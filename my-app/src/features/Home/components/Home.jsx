@@ -3,6 +3,8 @@ import Button from '../../../components/Button/Button';
 import styles from './Home.module.css';
 import Menu from '../../../components/Menu/Menu';
 import './Home.module.css';
+import Footer from '../../../components/Footer/Footer';
+
 function Home(){
     return (
       <div className="containerHome">
@@ -89,14 +91,10 @@ function Home(){
           </section>
         </div>
   
-        {/* Rodapé */}
-        <footer className={styles.footer}>
-          <div className="container">
-            <p className="mb-0">© 2025 Gabriel Teodoro - Todos os direitos reservados</p>
-          </div>
-        </footer>
+        {/* Rodapé*/}
+        <Footer/>
       </div>
     );
-  };
+  }
   
   export default Home;

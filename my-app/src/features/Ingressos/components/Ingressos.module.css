@@ -1,0 +1,13 @@
+/* Ingressos.css */
+.pageIngressos {
+  background-color: #212529;
+  color: #f8f9fa;
+}
+
+.page-ingressos label,
+.page-ingressos h1,
+.page-ingressos h2,
+.page-ingressos th,
+.page-ingressos td {
+  color: #f8f9fa;
+}

@@ -1,15 +1,16 @@
-import Filme from "../components/Filme"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import Ingressos from '../components/Ingressos';
 
 
-function CadastroFilme(){
+function VendasIngressos(){
 
     return(
+
         <div>
-        <Filme/>
+            <Ingressos/>
         </div>
     );
 }
 
-export default CadastroFilme;
+export default VendasIngressos;

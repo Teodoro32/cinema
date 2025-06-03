@@ -1,15 +1,16 @@
-import Filme from "../components/Filme"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import Sessoes from '../components/Sessoes';
 
 
-function CadastroFilme(){
+
+function CadastroSessoes(){
 
     return(
         <div>
-        <Filme/>
+        <Sessoes/>
         </div>
     );
 }
 
-export default CadastroFilme;
+export default CadastroSessoes;
