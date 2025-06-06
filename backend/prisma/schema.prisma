@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Movie {
+  id              Int       @id @default(autoincrement())
+  title           String
+  description     String?
+  genre           String
+  rating          String
+  durationMinutes Int
+  releaseDate     DateTime
+  imageUrl        String
+  createdAt       DateTime  @default(now())
+  sessions        Session[]
+}
+
+enum RoomType {
+  TWO_D
+  THREE_D
+  IMAX
+}
+
+model Room {
+  id       Int       @id @default(autoincrement())
+  name     String
+  capacity Int
+  type     RoomType
+  sessions Session[]
+}
+
+enum Format {
+  TWO_D
+  THREE_D
+}
+
+model Session {
+  id       Int      @id @default(autoincrement())
+  movie    Movie    @relation(fields: [movieId], references: [id])
+  movieId  Int
+  room     Room     @relation(fields: [roomId], references: [id])
+  roomId   Int
+  dateTime DateTime
+  price    Float
+  language String
+  format   Format
+
+  tickets Ticket[]
+}
+
+model Ticket {
+  id         Int      @id @default(autoincrement())
+  name       String
+  session    Session  @relation(fields: [sessionId], references: [id])
+  sessionId  Int
+  seatNumber String
+  price      Float?
+  status     String? // ex: "available", "sold", "reserved"
+  createdAt  DateTime @default(now())
+}
