@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Filme {
+  id            Int      @id @default(autoincrement())
+  titulo        String
+  descricao     String?
+  genero        String
+  classificacao String
+  duracao       Int
+  dataEstreia   DateTime
+  imagemUrl     String
+  createdAt     DateTime @default(now())
+  sessoes       Sessao[]
+}
+
+model Sala {
+  id         Int      @id @default(autoincrement())
+  nome       String
+  capacidade Int
+  tipo       TipoSala
+  sessoes    Sessao[]
+}
+
+model Sessao {
+  id        Int        @id @default(autoincrement())
+  filmeId   Int
+  salaId    Int
+  dataHora  DateTime
+  preco     Float
+  idioma    String
+  formato   Formato
+  filme     Filme      @relation(fields: [filmeId], references: [id])
+  sala      Sala       @relation(fields: [salaId], references: [id])
+  ingressos Ingresso[]
+}
+
+model Ingresso {
+  id            Int      @id @default(autoincrement())
+  nome          String
+  sessaoId      Int
+  numeroAssento String
+  preco         Float?
+  status        String?
+  criadoEm      DateTime @default(now())
+  sessao        Sessao   @relation(fields: [sessaoId], references: [id])
+}
+
+enum TipoSala {
+  DOIS_D
+  TRES_D
+  IMAX
+}
+
+enum Formato {
+  DOIS_D
+  TRES_D
+}
