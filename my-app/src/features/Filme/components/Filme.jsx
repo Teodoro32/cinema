@@ -17,7 +17,7 @@ function Filme() {
     classificacao: "",
     duracao: "",
     dataEstreia: "",
-    imagem: null,
+    imagemUrl: "",
     preview: "",
   });
 
@@ -48,7 +48,7 @@ function Filme() {
         reader.onloadend = () => {
           setFilme({
             ...filme,
-            imagem: file,
+            imagemUrl: file,
             preview: reader.result,
           });
         };
@@ -73,7 +73,7 @@ function Filme() {
       classificacao: filme.classificacao,
       duracao: Number(filme.duracao),
       dataEstreia: new Date(filme.dataEstreia).toISOString(),
-      imagem: filme.preview // Atenção: idealmente deve ser uma URL da imagem armazenada no backend
+      imagemUrl: filme.preview // Atenção: idealmente deve ser uma URL da imagem armazenada no backend
     };
 
     try {
@@ -93,7 +93,7 @@ function Filme() {
         classificacao: '',
         duracao: '',
         dataEstreia: '',
-        imagem: null,
+        imagemUrl: '',
         preview: ''
       });
       setEditando(false);
@@ -115,7 +115,7 @@ function Filme() {
       classificacao: filmeParaEditar.classificacao,
       duracao: filmeParaEditar.duracao,
       dataEstreia: filmeParaEditar.dataEstreia,
-      imagem: null,
+      imagemUrl: null,
       preview: filmeParaEditar.imageUrl || ''
     });
     setEditando(true);
@@ -298,7 +298,7 @@ function Filme() {
                 classificacao: "",
                 duracao: "",
                 dataEstreia: "",
-                imagem: null,
+                imagemUrl: null,
                 preview: "",
               });
             }}

@@ -9,7 +9,7 @@ interface Filme {
   duracao: number;
   dataEstreia: string;
   // Se usar imagem via URL ou base64, pode incluir aqui, por exemplo:
-  imagem?: string;
+  imagemUrl?: string;
 }
 
 // Função para buscar todos os filmes
@@ -21,7 +21,7 @@ export async function getFilmes(): Promise<Filme[]> {
 
 // Função para criar um novo filme
 export async function criarFilme(filme: Filme): Promise<Filme> {
-  const res = await fetch('http://localhost:3000/api/Filmes', {
+  const res = await fetch('/api/Filmes', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(filme),
