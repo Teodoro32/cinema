@@ -1,25 +1,69 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Menu from "../../../components/Menu/Menu";
+import { listarSalas, criarSala, atualizarSala } from "../services/salaService";
+import styles from "./Sala.module.css";
 
 function Sala() {
+  const [mensagem, setMensagem] = useState("");
+  const [tipoMensagem, setTipoMensagem] = useState("");
+  const mostrarMensagem = (texto, tipo) => {
+    setMensagem(texto);
+    setTipoMensagem(tipo);
+    setTimeout(() => {
+      setMensagem("");
+      setTipoMensagem("");
+    }, 3000);
+  };
+
   const [salas, setSalas] = useState([]);
   const [nome, setNome] = useState("");
   const [capacidade, setCapacidade] = useState("");
   const [tipo, setTipo] = useState("");
   const [editIndex, setEditIndex] = useState(null);
 
-  const handleSubmit = (e) => {
+  // Buscar salas ao carregar
+  useEffect(() => {
+    async function fetchSalas() {
+      try {
+        const dados = await listarSalas();
+        setSalas(dados);
+      } catch (error) {
+        console.error("Erro ao buscar salas:", error);
+      }
+    }
+
+    fetchSalas();
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const novaSala = { nome, capacidade, tipo };
+    const novaSala = { nome, capacidade: Number(capacidade), tipo };
 
     if (editIndex !== null) {
-      const atualizadas = [...salas];
-      atualizadas[editIndex] = novaSala;
-      setSalas(atualizadas);
-      setEditIndex(null);
+      const salaEditada = salas[editIndex];
+      try {
+        const salaAtualizada = await atualizarSala(salaEditada.id, novaSala);
+        const atualizadas = [...salas];
+        atualizadas[editIndex] = salaAtualizada;
+        setSalas(atualizadas);
+        setMensagem("Sala atualizada com sucesso!");
+        setTipoMensagem("sucesso");
+        setEditIndex(null);
+      } catch (error) {
+        setMensagem("Erro ao atualizar sala.");
+        setTipoMensagem("erro");
+      }
     } else {
-      setSalas([...salas, novaSala]);
+      try {
+        const salaCriada = await criarSala(novaSala);
+        setSalas([...salas, salaCriada]);
+        setMensagem("Sala cadastrada com sucesso!");
+        setTipoMensagem("sucesso");
+      } catch (error) {
+        setMensagem("Erro ao cadastrar sala.");
+        setTipoMensagem("erro");
+      }
     }
 
     setNome("");
@@ -55,10 +99,20 @@ function Sala() {
 
   return (
     <div className="bg-dark text-light min-vh-100">
-        <Menu/> 
+      <Menu />
       {/* Conteúdo principal */}
       <div className="container mt-5">
         <h1 className="mb-4">Cadastro de Salas</h1>
+
+        {mensagem && (
+          <div
+            className={`${styles.mensagem} ${
+              tipoMensagem === "sucesso" ? styles.sucesso : styles.erro
+            }`}
+          >
+            {mensagem}
+          </div>
+        )}
 
         {/* Formulário */}
         <form onSubmit={handleSubmit}>
@@ -81,7 +135,7 @@ function Sala() {
               Capacidade
             </label>
             <input
-              type="number"
+              type="Number"
               id="capacidade"
               className="form-control"
               required

@@ -13,6 +13,7 @@ export class FilmesService {
       data: {
         ...data,
         dataEstreia: new Date(data.dataEstreia),
+        imagemUrl: data.imagemUrl || '',
       },
     });
   }

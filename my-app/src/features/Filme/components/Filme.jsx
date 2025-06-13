@@ -9,6 +9,17 @@ import {
 } from "../services/filmeService";
 
 function Filme() {
+  const [mensagem, setMensagem] = useState("");
+  const [tipoMensagem, setTipoMensagem] = useState("");
+
+  const mostrarMensagem = (texto, tipo) => {
+    setMensagem(texto);
+    setTipoMensagem(tipo);
+    setTimeout(() => {
+      setMensagem("");
+      setTipoMensagem("");
+    }, 3000);
+  };
   // Estados para os campos do formulário
   const [filme, setFilme] = useState({
     titulo: "",
@@ -28,7 +39,7 @@ function Filme() {
   useEffect(() => {
     async function fetchMovies() {
       try {
-        const data = await getMovies();
+        const data = await getFilmes();
         setFilmes(data);
       } catch (error) {
         console.error("Erro ao carregar filmes:", error);
@@ -71,39 +82,40 @@ function Filme() {
       descricao: filme.descricao,
       genero: filme.genero,
       classificacao: filme.classificacao,
-      duracao: Number(filme.duracao),
+      duracao: Number(filme.duracao) || 0,
       dataEstreia: new Date(filme.dataEstreia).toISOString(),
-      imagemUrl: filme.preview // Atenção: idealmente deve ser uma URL da imagem armazenada no backend
+      imagemUrl: filme.preview, // Atenção: idealmente deve ser uma URL da imagem armazenada no backend
     };
 
     try {
       if (editando) {
         await atualizarFilme(idEditando, movieData);
+        mostrarMensagem("Filme atualizado com sucesso!", "sucesso");
       } else {
         await criarFilme(movieData);
+        mostrarMensagem("Filme cadastrado com sucesso!", "sucesso");
       }
 
-      const atualizarFilme = await getMovies();
-      setFilmes(atualizarFilme);
+      const filmesAtualizados = await getFilmes();
+      setFilmes(filmesAtualizados);
 
       setFilme({
-        titulo: '',
-        descricao: '',
-        genero: '',
-        classificacao: '',
-        duracao: '',
-        dataEstreia: '',
-        imagemUrl: '',
-        preview: ''
+        titulo: "",
+        descricao: "",
+        genero: "",
+        classificacao: "",
+        duracao: "",
+        dataEstreia: "",
+        imagemUrl: "",
+        preview: "",
       });
       setEditando(false);
       setIdEditando(null);
     } catch (error) {
-      console.error('Erro ao salvar filme:', error);
-      alert('Erro ao salvar filme. Tente novamente.');
+      console.error("Erro ao salvar filme:", error);
+      alert("Erro ao salvar filme. Tente novamente.");
     }
   };
-
 
   // Função para editar filme
   const editarFilme = (id) => {
@@ -116,22 +128,22 @@ function Filme() {
       duracao: filmeParaEditar.duracao,
       dataEstreia: filmeParaEditar.dataEstreia,
       imagemUrl: null,
-      preview: filmeParaEditar.imageUrl || ''
+      preview: filmeParaEditar.imagemUrl || "",
     });
     setEditando(true);
     setIdEditando(id);
   };
 
-
   // Função para excluir filme
   const excluirFilme = async (id) => {
     try {
       await deletarFilme(id);
-      const atualizarFilme = await getMovies();
-      setFilmes(atualizarFilme);
+      const filmesAtualizados = await getFilmes();
+      setFilmes(filmesAtualizados);
+      mostrarMensagem("Filme excluído com sucesso!", "sucesso");
     } catch (error) {
-      console.error('Erro ao excluir filme:', error);
-      alert('Erro ao excluir filme. Tente novamente.');
+      console.error("Erro ao excluir filme:", error);
+      alert("Erro ao excluir filme. Tente novamente.", "erro");
     }
   };
 
@@ -139,6 +151,16 @@ function Filme() {
     <div className={styles.container}>
       <Menu />
       <h1 className={styles.title}>Cadastro de Filmes</h1>
+
+      {mensagem && (
+        <div
+          className={`${styles.mensagem} ${
+            tipoMensagem === "sucesso" ? styles.sucesso : styles.erro
+          }`}
+        >
+          {mensagem}
+        </div>
+      )}
 
       {/* Formulário de Cadastro de Filmes */}
       <form className={styles.form} onSubmit={handleSubmit}>

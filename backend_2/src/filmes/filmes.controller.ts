@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete, Put } from '@nestjs/common';
 import { FilmesService } from './filmes.service';
 import { FilmeDto } from './dto/filmes.dto';
 
@@ -21,7 +21,7 @@ export class FilmesController {
     return this.filmesService.buscarPorId(+id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   atualizar(@Param('id') id: string, @Body() data: FilmeDto) {
     return this.filmesService.atualizar(+id, data);
   }
