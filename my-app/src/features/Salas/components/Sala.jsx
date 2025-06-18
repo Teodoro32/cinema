@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Menu from "../../../components/Menu/Menu";
-import { listarSalas, criarSala, atualizarSala } from "../services/salaService";
+import { listarSalas, criarSala, atualizarSala, deletarSala } from "../services/salaService";
 import styles from "./Sala.module.css";
 
 function Sala() {
@@ -79,14 +79,21 @@ function Sala() {
     setEditIndex(index);
   };
 
-  const handleDelete = (index) => {
-    const atualizadas = salas.filter((_, i) => i !== index);
-    setSalas(atualizadas);
-    if (editIndex === index) {
-      setNome("");
-      setCapacidade("");
-      setTipo("");
-      setEditIndex(null);
+  const handleDelete = async (index) => {
+    const salaId = salas[index].id;
+    try {
+      await deletarSala(salaId);
+      const atualizadas = salas.filter((_, i) => i !== index);
+      setSalas(atualizadas);
+      if (editIndex === index) {
+        setNome("");
+        setCapacidade("");
+        setTipo("");
+        setEditIndex(null);
+      }
+    } catch (error) {
+      console.error("Erro ao deletar sala:", error);
+      alert("Erro ao deletar sala.");
     }
   };
 
