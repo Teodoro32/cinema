@@ -5,8 +5,8 @@ export class Ingresso {
   nome: string;
   sessaoId: number;
   numeroAssento: string;
-  preco?: number;
-  status?: string;
+  preco?: number 
+  status?: string 
   criadoEm: Date;
 
   sessao: Sessao;
