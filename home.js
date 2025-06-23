@@ -7,9 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const filmes = JSON.parse(localStorage.getItem("filmes")) || [];
   const sessoes = JSON.parse(localStorage.getItem("sessoes")) || [];
 
-  // Debug: Mostra no console os dados carregados
-  console.log("Filmes carregados:", filmes);
-  console.log("Sessões carregadas:", sessoes);
 
   // Função para exibir os filmes em cards
   function carregarFilmes() {

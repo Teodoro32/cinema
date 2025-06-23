@@ -24,11 +24,9 @@ function Ingressos() {
 
 
   useEffect(() => {
-    console.log("useEffect disparado");
 
     async function fetchData() {
       try {
-        console.log("Chamando listarIngressos...");
         const ingressosData = await listarIngressos();
         setIngressos(ingressosData);
       } catch (error) {
@@ -36,9 +34,7 @@ function Ingressos() {
       }
 
       try {
-        console.log("Buscando sessoes...");
         const sessoesData = await listarSessoes();
-        console.log("Sessoes carregadas:", sessoesData);
         setSessoes(sessoesData);
       } catch (error) {
         alert("Erro ao carregar sessões");
